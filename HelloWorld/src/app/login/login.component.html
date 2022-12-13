@@ -1,4 +1,27 @@
-<form>
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>User Id</mat-label>
+              <input type="text" matInput [formControl]="frmUserId" placeholder="Gooby">
+              <mat-error *ngIf="frmUserId.hasError('required')">
+                User Id is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="text" matInput [formControl]="frmPassword" placeholder="Gooby">
+                <mat-error *ngIf="frmPassword.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <br>
+              <button (click)="Login()"  mat-fab class="btn btn-primary" style="background-color: #3a1db9;">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- <form>
     <div class="form-row">
         <div class="form-group col-md-6">
         <label for="inputEmail4">User Id</label>
@@ -13,5 +36,5 @@
     </div>
     <br>
     <button type="submit" class="btn btn-primary" style="background-color: #3a1db9;">Create Account</button>
-</form>
+</form> -->
 

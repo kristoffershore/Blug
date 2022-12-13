@@ -1,21 +1,29 @@
 <h1>Recent Posts...</h1>
+<p *ngIf="posts.length == 0" class="no-posts">
+  No posts found.
+  <br>
+  Create new post?
+  <br>
+  <br>
+  <button onclick="window.location.href='http://localhost:4200/createpost';" mat-fab class="btn" style="background-color: #89ffb6;">Create Post</button>
+</p> 
+
 <div>
-    <div *ngFor="let post of posts" style="width: 90%; padding: 15px; padding-left: 30px; ">        
-        <div class="card" style="width: 90%;">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <h5 class="card-title">{{post.title}}</h5>
-              <p class="card-text">Created by: {{post.userId}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{post.content}}</li>
-              <li class="list-group-item">Created: {{post.createdDate}}</li>
-              
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Edit</a>
-              <a href="#" class="card-link">Delete</a>
-            </div>
+  <div *ngFor="let post of posts" style="width: 90%; padding: 15px; padding-left: 30px; ">           
+    <div class="card" style="width: 90%;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text"><b>Created by:</b> {{post.userId}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{post.content}}</li>
+          <li class="list-group-item">Created: {{post.createdDate}}</li>             
+        </ul>
+        <div class="card-body">
+          <button *ngIf="post.userId==currentUser" (click)="getPostById(post.postId)" onclick="window.location.href='http://localhost:4200/editpost';" mat-fab class="btn" style="background-color: #89ffb6;">Edit</button>
+          <button *ngIf="post.userId==currentUser" (click)="deletePost(post.postId)"  mat-fab class="btn" style="background-color: #ff89eb;">Delete</button>
         </div>
     </div>
+  </div>
 </div>

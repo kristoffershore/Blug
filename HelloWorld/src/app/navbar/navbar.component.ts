@@ -1,5 +1,7 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { WebcommService } from '../services/webcomm.service';
+ 
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,18 @@ import { WebcommService } from '../services/webcomm.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  token = localStorage.getItem('token');
   constructor(private webcommsvc:WebcommService) { }
 
-  ngOnInit():void {
-    
+  ngOnInit():void {    
+    let headers = new HttpHeaders;  
+  }
+
+  Logout(){
+    alert(localStorage.getItem('token'));
+    localStorage.removeItem('token');
+    alert('You have logged out successfully.');
+    alert("Token: "+localStorage.getItem('token'));
+    window.location.href=('http://localhost:4200/login')
   }
 }

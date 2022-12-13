@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Post Title</mat-label>
+              <input type="text" matInput [formControl]="frmTitle" placeholder="Gooby">
+              <mat-error *ngIf="frmTitle.hasError('required')">
+                Post Title is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+            <mat-label>Header Image URL</mat-label>
+            <input type="text" matInput [formControl]="frmHeaderImage" placeholder="Gooby">
+            <mat-error *ngIf="frmHeaderImage.hasError('required')">
+                Header Image is <strong>required</strong>
+            </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Content</mat-label>
+                <input type="text" matInput [formControl]="frmContent" placeholder="Gooby">
+                <mat-error *ngIf="frmContent.hasError('required')">
+                    Content is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button (click)="EditPost()" mat-fab class="btn btn-primary" style="background-color: #3a1db9;">Update Post</button>
+            <button  mat-fab class="btn btn-primary" style="background-color: #797979;">Cancel</button>
+        </form>
+    </mat-card-content>
+</mat-card>

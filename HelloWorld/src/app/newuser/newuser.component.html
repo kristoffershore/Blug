@@ -1,4 +1,52 @@
-<form>
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>User Id</mat-label>
+              <input type="text" matInput [formControl]="frmUserId" placeholder="Gooby">
+              <mat-error *ngIf="frmUserId.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput [formControl]="frmFirstName" placeholder="Gooby">
+                <mat-error *ngIf="frmFirstName.hasError('required')">
+                  First name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput [formControl]="frmLastName" placeholder="Gooby">
+                <mat-error *ngIf="frmLastName.hasError('required')">
+                  Last name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput [formControl]="frmEmailAddress" placeholder="Ex. pat@example.com">
+                <mat-error *ngIf="frmEmailAddress.hasError('email') && !frmEmailAddress.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="frmEmailAddress.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="text" matInput [formControl]="frmPassword" placeholder="Gooby">
+                <mat-error *ngIf="frmPassword.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <br>
+              
+              <button (click)="RegisterUser()" mat-fab class="btn btn-primary" style="background-color: #3a1db9;">Create Account</button>
+              
+        </form>
+    </mat-card-content>
+</mat-card>
+<!-- <form>
     <div class="form-row">
         <div class="form-group col-md-6">
         <label for="inputEmail4">User Id</label>
@@ -31,4 +79,4 @@
     </div>
     <br>
     <button (click)="RegisterUser()" type="submit" class="btn btn-primary" style="background-color: #3a1db9;">Create Account</button>
-</form>
+</form> -->
