@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
           console.log(response);
           token=response.token;
           alert("Login was successful!!!")
-          alert("Here is your token: "+token)
+          //alert("Here is your token: "+token)
           localStorage.setItem('token', token);
           window.location.href=('http://localhost:4200')
         },

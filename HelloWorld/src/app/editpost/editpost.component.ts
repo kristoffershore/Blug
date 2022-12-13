@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { token } from '../login/login.component';
 import { LoginComponent } from '../login/login.component';
 import { ViewpostsComponent } from '../viewposts/viewposts.component';
-import { selectedPostId } from '../viewposts/viewposts.component';
+//import { selectedPostId } from '../viewposts/viewposts.component';
 //import { token } from 'C:/Users/krist/blog-front-end-kristoffershore/HelloWorld/src/app/login/login.component.js';
 
 export class Post
@@ -48,10 +48,11 @@ export class EditpostComponent implements OnInit{
   allPosts = ViewpostsComponent.posts;
   // selectedPost: Post = this.allPosts[0];
   post: Post= new Post (0, new Date(), "", "", "", "", new Date());
+  selectedPostId=localStorage.getItem('selectedPost');
   
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
   
   EditPost(){
@@ -67,7 +68,7 @@ export class EditpostComponent implements OnInit{
       this.post.userId = this.frmUserId.value!;
       this.post.headerImage = this.frmHeaderImage.value!;
 
-      return this.httpClient.patch<any>(editPostUrl+selectedPostId, this.post, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).subscribe(      
+      return this.httpClient.patch<any>(editPostUrl+this.selectedPostId, this.post, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).subscribe(      
         response => {
           console.log(response);
           //token=response.token;

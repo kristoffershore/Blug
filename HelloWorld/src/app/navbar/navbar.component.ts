@@ -17,10 +17,9 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout(){
-    alert(localStorage.getItem('token'));
     localStorage.removeItem('token');
     alert('You have logged out successfully.');
-    alert("Token: "+localStorage.getItem('token'));
+    //alert("Token: "+localStorage.getItem('token'));
     window.location.href=('http://localhost:4200/login')
   }
 }

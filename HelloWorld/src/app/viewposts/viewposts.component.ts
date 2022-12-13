@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebcommService } from '../services/webcomm.service';
 import jwt_decode from "jwt-decode";
 
-var selectedPostId = 0;
+//export var selectedPostId = 0;
 
 export class Post
 {
@@ -75,17 +75,14 @@ export class ViewpostsComponent implements OnInit {
   }
 
   public getPostById(currentPostId: any){
-    {
-      return this.httpClient.get<any>('http://localhost:3000/Posts/'+currentPostId).subscribe(
-        response => {
-          console.log(response);
-          this.selectedPost = response;
-          alert(this.selectedPost.postId);
-          selectedPostId = this.selectedPost.postId;
-          alert(selectedPostId);
-        } 
-      ); 
-    }
+    return this.httpClient.get<any>('http://localhost:3000/Posts/'+currentPostId).subscribe(
+      response => {
+        console.log(response);
+        this.selectedPost = response;
+        let selectedPostId = this.selectedPost.postId.toString();
+        localStorage.setItem('selectedPost', selectedPostId);
+      } 
+    );   
   }
 
   deletePost(currentPostId: any)
@@ -111,5 +108,4 @@ export class ViewpostsComponent implements OnInit {
   }
 }
 
-export { selectedPostId }
 
