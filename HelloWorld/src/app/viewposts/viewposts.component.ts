@@ -49,6 +49,7 @@ else {
 export class ViewpostsComponent implements OnInit {
   
   currentUser = currentUser;
+  token = localStorage.getItem('token');
   
   posts: Post[] = [];
   selectedPost: Post = new Post (0, new Date(), "", "", "", "", new Date());
@@ -87,10 +88,9 @@ export class ViewpostsComponent implements OnInit {
 
   deletePost(currentPostId: any)
   {
-    if(window.confirm('Are sure you want to delete this item ?')){
+    if(window.confirm('Are sure you want to delete this item?')){
       let headers = new HttpHeaders;
       let token = localStorage.getItem('token');
-      alert(token);
       
       return this.httpClient.delete<any>('http://localhost:3000/Posts/'+currentPostId, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).subscribe(
         response => {

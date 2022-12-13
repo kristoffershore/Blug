@@ -1,13 +1,14 @@
 <h1 style="padding-left: .5%; padding-top: .9%; font-size: xx-large;">Recent Posts...</h1>
-<p *ngIf="posts.length == 0" class="no-posts">
-  No posts found.
+<div *ngIf="posts.length == 0" class="no-posts">
+  No posts found...
   <br>
-  Create new post?
-  <br>
-  <br>
-  <button onclick="window.location.href='http://localhost:4200/createpost';" mat-fab class="btn" style="background-color: #89ffb6;">Create Post</button>
-</p> 
-
+  <div *ngIf="token != null">  Create new post?
+    <br>
+    <br>
+    <button onclick="window.location.href='http://localhost:4200/createpost';" mat-fab class="btn" style="background-color: #89ffb6;">Create Post</button>
+  </div>
+</div> 
+ 
 <div>
   <div *ngFor="let post of posts" style="width: 90%; padding: 15px; padding-left: 30px; ">           
     <div class="card" style="width: 90%;">

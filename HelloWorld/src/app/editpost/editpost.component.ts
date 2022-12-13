@@ -56,11 +56,10 @@ export class EditpostComponent implements OnInit{
   }
   
   EditPost(){
-    alert(this.allPosts);
     let editPostUrl = 'http://localhost:3000/Posts/'+this.frmPostId.value;
     let headers = new HttpHeaders;
     let token = localStorage.getItem('token');
-    alert(token);
+
     if(this.frmTitle.valid && this.frmContent.valid && this.frmHeaderImage.valid)
     {
       this.post.title = this.frmTitle.value!;
@@ -71,7 +70,6 @@ export class EditpostComponent implements OnInit{
       return this.httpClient.patch<any>(editPostUrl+this.selectedPostId, this.post, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).subscribe(      
         response => {
           console.log(response);
-          //token=response.token;
           alert("Post successful!!!")
         },
         (err) => {
