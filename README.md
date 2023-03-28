@@ -4,5 +4,4 @@ Personal Blog application.
 
 Made to be used in conjuction with Node+Express API at: https://github.com/kristoffershore/express-api
 
--cd into HelloWorld
--ng serve
+-cd into HelloWorld and then ng serve
